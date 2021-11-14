@@ -1,0 +1,45 @@
+# +---------------------------------------------+
+# | vCrates | Vnco Development                  |
+# |                                             |
+# | Owner: <rui discord and twitter>            |
+# | Worker: Vnco#1315 - @OldVnco                |
+# | Support: discord.vnco.club                  |
+# +---------------------------------------------+
+
+# + | Database Type
+database-type: 'JSON' #MONGODB or JSON
+
+# + | MongoDB Settings
+mongodb:
+  address: '127.0.0.1:27017'
+  database: 'crates'
+  authentication:
+    enabled: true
+    username: 'rui'
+    password: 'ily wapo'
+
+# + | Crate Template
+crate-template:
+  display-name: '&b&l<crate>'
+  block:
+    display-name: '<crateDisplayName> &7Crate'
+    material-id: '54'
+    glow: false
+    description:
+      - '&7&m----------------------------------------'
+      - '&fClick at block for place!'
+      - '&7&m----------------------------------------'
+  key:
+    display-name: '<crateDisplayName> &7Key'
+    material-id: '131'
+    glow: true
+    description:
+      - '&7&m----------------------------------------'
+      - '&fClick at crate <crateDisplayName> &ffor open!'
+      - '&7&m----------------------------------------'
+  hologram:
+    enabled: true
+    lines:
+      - '   <crateDisplayName>'
+      - '  &fRight click for open'
+      - '&fLeft click for view content'

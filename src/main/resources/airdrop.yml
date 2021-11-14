@@ -1,0 +1,11 @@
+airdrop:
+  summoner:
+    display-name: '&c&lAirdrop &7(Summoner)'
+    material-id: '76'
+    glow: false
+    description:
+      - '&7&m----------------------------------------'
+      - '&fClick at a block for spawn a airdrop!'
+      - '&7&m----------------------------------------'
+  hologram:
+    - '&c&l[!] &fClick at me for open!'

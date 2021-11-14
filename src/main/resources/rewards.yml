@@ -1,0 +1,11 @@
+rewards:
+  PartnerPackage:
+    display-name: '&c&lPartner Package &7(Right Click)'
+    material-id: '130'
+    glow: false
+    description:
+      - '&7&m----------------------------------------'
+      - '&fInteract for get amazings rewards'
+      - '&7&m----------------------------------------'
+    commands:
+      - 'give <player> DIAMOND 1'

@@ -1,0 +1,107 @@
+prefix: '&r[vCrates] '
+
+plugin-reload: '&bSuccessfully reloaded in &r<time>ms&b!'
+no-permissions: '&cYou dont have permissions for run this command.'
+only-players: '&cYou cannot run this command from the console.'
+player-not-found: '&cPlayer &e<target> &cnot found.'
+inventory-full: '&cInventory full.'
+inventory-full-item-dropped: '&cInventory full. &7(Item has been dropped in the floor!)'
+invalid-amount: '&e<amount> &cis a invalid amount.'
+
+crate:
+  already-exists: '&cCrate &e<crate> &calready exists.'
+  not-found: '&cCrate &e<crate> &cnot found.'
+  invalid-key: '&cInvalid Key!'
+  loot-null: "&cCrate &e<crate> &calmost need &e1 item &cfor can open it."
+  successfully:
+    create: '&bSuccessfully created &r<crate> &7Crate&b.'
+    delete: '&bSuccessfully deleted &r<crate> &7Crate&b.'
+    gived-target: '&bSuccessfully gived &r<crateDisplayName> &7Keys &bto &r<player>&b. &7(x<amount>)'
+    gived-all: '&bSuccessfully gived &r<crateDisplayName> &7Keys &bto &r<players> &bplayers. &7(x<amount>)'
+    received: '&bSuccessfully received &rx<amount> <crateDisplayName> &7Keys &bby &r<executor>&b.'
+    set-key: '&bSuccessfully set key item to &r<crate>&b.'
+    set-block: '&bSuccessfully set block to &r<crate>&b.'
+    edit-loot: '&bSuccessfully edited loot.'
+    removed: '&bSuccessfully removed &r<crate> &bfrom &7(<location>)'
+    placed: '&bSuccessfully placed &r<crate> &bat &7(<location>)'
+  list:
+    lines: '&7&m----------------------------------------'
+    title: '&b&lCrates &7(List)'
+    object-format: '&8* &r<crate>'
+  help-admin:
+    - '&7&m-------------------------------------------------------'
+    - '&b&lCrates &7(Help Command) [/crates <...>]'
+    - ''
+    - ' create <name> &7(Create a crate)'
+    - ' delete <crate> &7(Delete a crate)'
+    - ' give <crate> <target> &7(Give a crate)'
+    - ' givekey <crate> <target/all> <amount> &7(Give key of a crate)'
+    - ' editloot <crate> &7(Edit loot to a crate)'
+    - ' list &7(Show the list of available crates)'
+    - ' reload &7(Reload plugin)'
+    - ''
+    - '&b&lOwner&7: &r@Rui'
+    - '&7&m-------------------------------------------------------'
+
+reward:
+  not-found: '&cReward &e<reward> &cnot found'
+  successfully:
+    gived-target: '&bSuccessfully gived &r<reward> &bto &r<player>&b. &7(x<amount>)'
+    gived-all: '&bSuccessfully gived &r<reward> &bto &r<players> &bplayers. &7(x<amount>)'
+    received: '&bSuccessfully received &rx<amount> <reward> &bby &r<executor>&b.'
+    redeem: '&bSuccessfully redeem &r<reward>&b.'
+  list:
+    lines: '&7&m----------------------------------------'
+    title: '&b&lRewards &7(List)'
+    object-format: '&8* &r<reward>'
+  help-admin:
+    - '&7&m-------------------------------------------------------'
+    - '&b&lRewards &7(Help Command) [/rewards <...>]'
+    - ''
+    - ' give <reward> <target> <amount> &7(Give reward to a player)'
+    - ' list &7(Show the list of rewards)'
+    - ''
+    - '&7&m-------------------------------------------------------'
+
+airdrop:
+  falling: '&bAirdrop is falling..'
+  successfully:
+    gived-target: '&bSuccessfully gived airdrop (s) to &r<player>&b. &7(x<amount>)'
+    gived-all: '&bSuccessfully gived airdrop (s) &bto &r<players> &bplayers. &7(x<amount>)'
+    received: '&bSuccessfully received &rx<amount> airdrop (s) &bby &r<executor>&b.'
+  help-admin:
+    - '&7&m-------------------------------------------------------'
+    - '&b&lAirdrop &7(Help Command) [/airdrop <...>]'
+    - ''
+    - ' give <airdrop> <target> <amount> &7(Give airdrop to a player)'
+    - ' viewloot &7(View the airdrop loot)'
+    - ''
+    - '&7&m-------------------------------------------------------'
+
+prepared-item:
+  already-exists: '&cPrepared Items &e<p-item> &calready exists.'
+  not-found: '&cPrepared Items &e<p-item> &cnot found.'
+  is-not-running: '&cPrepared Items &e<p-item> &cis not running.'
+  successfully:
+    created: '&bSuccessfully created &r<p-item> &7Prepared Items&b.'
+    deleted: '&bSuccessfully deleted &r<p-item> &7Prepared Items&b.'
+    gived-target: '&bSuccessfully gived &r<p-item> &bto &r<player>&b. &7(x<amount>)'
+    gived-all: '&bSuccessfully gived &r<p-item> &bto &r<players> &bplayers. &7(x<amount>)'
+    stopped: '&bSuccessfully stopped &r<p-item> &7Prepared Items &b.'
+    received: '&bSuccessfully received &rx<amount> <p-item> &bby &r<executor>&b.'
+  list:
+    lines: '&7&m----------------------------------------'
+    title: '&b&lPrepared Items &7(List)'
+    object-format: '&8* &r<p-item>'
+  help-admin:
+    - '&7&m-------------------------------------------------------'
+    - '&b&lPrepared Items &7(Help Command) [/prepareditems <...>]'
+    - ''
+    - ' create <name> &7(Create a P-Item)'
+    - ' delete <p-item> &7(Delete a P-Item)'
+    - ' give <p-item> <target/all> <time> &7(Give a P-Item to a target)'
+    - ' stop <p-item> &7(Stop a anticipated P-Item)'
+    - ' editloot <p-item> &7(Edit loot to a P-Item)'
+    - ' list &7(Show a list of P-Items)'
+    - ''
+    - '&7&m-------------------------------------------------------'

@@ -1,0 +1,5 @@
+authors: [OldVnco]
+name: vCrates
+main: club.vnco.crates.Crates
+prefix: V
+version: ${project.version}
