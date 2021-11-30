@@ -1,5 +1,5 @@
-authors: [OldVnco]
-name: vCrates
-main: SuxiorCrates
-prefix: V
+main: dev.suxior.crates.SuxiorCrates
+name: SuxiorCrates
 version: ${project.version}
+author: Suxior Development
+

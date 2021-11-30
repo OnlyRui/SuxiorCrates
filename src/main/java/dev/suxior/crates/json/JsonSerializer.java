@@ -5,10 +5,6 @@ import com.google.gson.Gson;
 
 import java.io.File;
 
-/**
- * vCrates
- * By: @OldVnco
- */
 public interface JsonSerializer<T> {
 
     default String toJson(T t, Class<T> tClass) {

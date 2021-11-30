@@ -1,11 +1,3 @@
-# +---------------------------------------------+
-# | vCrates | Vnco Development                  |
-# |                                             |
-# | Owner: <rui discord and twitter>            |
-# | Worker: Vnco#1315 - @OldVnco                |
-# | Support: discord.vnco.club                  |
-# +---------------------------------------------+
-
 # + | Database Type
 database-type: 'JSON' #MONGODB or JSON
 

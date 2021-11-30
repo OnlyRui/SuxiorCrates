@@ -1,9 +1,5 @@
 package dev.suxior.crates.stores;
 
-/**
- * vHub
- * By: @CesarsDev
- */
 public interface Storeable<T> {
 
     /**

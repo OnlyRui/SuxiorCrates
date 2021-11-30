@@ -7,10 +7,6 @@ import dev.suxior.crates.stores.Store;
 import dev.suxior.crates.stores.Storeable;
 import com.google.common.collect.ImmutableList;
 
-/**
- * vHub
- * By: @CesarsDev
- */
 public class DefaultStore<T extends Storeable<?>> implements Store<T> {
 
     private final List<T> stored = new ArrayList<>();

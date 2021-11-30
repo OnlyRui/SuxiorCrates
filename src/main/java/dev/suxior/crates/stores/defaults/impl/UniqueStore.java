@@ -5,10 +5,6 @@ import dev.suxior.crates.stores.defaults.DefaultStore;
 
 import java.util.UUID;
 
-/**
- * vHub
- * By: @CesarsDev
- */
 public class UniqueStore<T extends Storeable<UUID>> extends DefaultStore<T> {
 
     @Override public T get(Object id) {

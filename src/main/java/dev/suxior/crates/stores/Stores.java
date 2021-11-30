@@ -7,10 +7,6 @@ import dev.suxior.crates.stores.defaults.impl.NamedStore;
 import dev.suxior.crates.stores.defaults.impl.UniqueStore;
 import lombok.experimental.UtilityClass;
 
-/**
- * vHub
- * By: @CesarsDev
- */
 @UtilityClass
 public class Stores {
 

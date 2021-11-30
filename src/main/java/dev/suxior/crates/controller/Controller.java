@@ -4,10 +4,6 @@ import dev.suxior.crates.SuxiorCrates;
 import dev.suxior.crates.stores.Storeable;
 import org.bukkit.plugin.java.JavaPlugin;
 
-/**
- * Controller easy
- * By: @CesarsDev
- */
 public interface Controller<T extends JavaPlugin> extends Storeable<Class<?>> {
 
     /**
