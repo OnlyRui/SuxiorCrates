@@ -29,5 +29,4 @@ public class CrateProvider implements Provider<Crate> {
     @Override public List<String> suggest(CommandSource<?> source, Parameter<Crate> parameter) {
         return this.controller.getCrates().stream().map(Crate::getId).collect(Collectors.toList());
     }
-
 }

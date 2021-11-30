@@ -22,7 +22,8 @@ public class CrateController implements JsonSerializer<Crate>, Controller<Suxior
     private Store<Crate> crateStore;
     public static String META = "§1§2§3";
 
-    @Override public void onEnable(SuxiorCrates crates) {
+    @Override
+    public void onEnable(SuxiorCrates crates) {
         this.crateStore = Stores.newNamedStore();
 
         this.loadCrates();
@@ -30,11 +31,13 @@ public class CrateController implements JsonSerializer<Crate>, Controller<Suxior
         Bukkit.getPluginManager().registerEvents(new CrateListener(this), crates);
     }
 
-    @Override public void onDisable(SuxiorCrates crates) {
+    @Override
+    public void onDisable(SuxiorCrates crates) {
         this.saveCrates();
     }
 
-    @Override public void onReload(SuxiorCrates crates) {
+    @Override
+    public void onReload(SuxiorCrates crates) {
         this.loadCrates();
     }
 
@@ -85,5 +88,4 @@ public class CrateController implements JsonSerializer<Crate>, Controller<Suxior
     @Override public File getParentFile() {
         return new File(this.getInstance().getDataFolder(), "crates");
     }
-
 }

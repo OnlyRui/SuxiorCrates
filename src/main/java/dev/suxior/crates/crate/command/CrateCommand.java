@@ -65,10 +65,8 @@ public class CrateCommand {
 
     @Command(aliases = {"crate delete", "crates delete"}, permission = "vcrates.delete.command")
     public void onCrateDeleteCommand(@Sender CommandSender sender, @Param(name = "crate") Crate crate) {
-        String name = crate.getId();
-
         this.controller.getCrateStore().remove(crate);
-        ChatUtil.toSender(sender, "&aSuccessfully deleted &e" + name + " &7Crate&a!");
+        ChatUtil.toSender(sender, "&aSuccessfully deleted &e" + crate.getId() + " &7Crate&a!");
     }
 
     @Command(aliases = {"crate editloot", "crates editloot"}, permission = "vcrates.editloot.command", forPlayerOnly = true)
@@ -112,9 +110,8 @@ public class CrateCommand {
     public void onCrateListCommand(@Sender CommandSender sender) {
         ChatUtil.toSender(sender, "&7&m" + Strings.repeat("-", 55));
 
-        this.controller.getCrates().forEach(crate -> ChatUtil.toSender(sender, "&8* " + crate.getDisplayName()));
+        this.controller.getCrates().forEach(crate -> ChatUtil.toSender(sender, "&8* " + crate.getId()));
 
         ChatUtil.toSender(sender, "&7&m" + Strings.repeat("-", 55));
     }
-
 }

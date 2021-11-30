@@ -26,7 +26,8 @@ public class AirdropListener implements Listener {
 
     private final AirdropController controller;
 
-    @EventHandler(ignoreCancelled = true) public void onPlayerPlaceSummoner(PlayerInteractEvent event){
+    @EventHandler(ignoreCancelled = true)
+    public void onPlayerPlaceSummoner(PlayerInteractEvent event){
         Player player = event.getPlayer();
 
         if (!event.hasItem()) {
@@ -57,7 +58,8 @@ public class AirdropListener implements Listener {
         this.controller.add(uuid, airdrop);
     }
 
-    @EventHandler(ignoreCancelled = true) public void onPlayerOpenAirdrop(PlayerInteractEvent event) {
+    @EventHandler(ignoreCancelled = true)
+    public void onPlayerOpenAirdrop(PlayerInteractEvent event) {
         Player player = event.getPlayer();
 
         if (event.getAction() != Action.RIGHT_CLICK_BLOCK) {
@@ -114,7 +116,8 @@ public class AirdropListener implements Listener {
         ((Dispenser) block.getState()).getInventory().addItem(this.controller.getRandomLoot(player));
     }
 
-    @EventHandler public void onInventoryClose(InventoryCloseEvent event){
+    @EventHandler
+    public void onInventoryClose(InventoryCloseEvent event){
         InventoryHolder holder = event.getInventory().getHolder();
 
         if (!(holder instanceof Dispenser)) {
@@ -145,5 +148,4 @@ public class AirdropListener implements Listener {
             airdrop.selfDestruct();
         }
     }
-
 }

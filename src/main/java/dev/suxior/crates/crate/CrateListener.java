@@ -26,42 +26,38 @@ public class CrateListener implements Listener {
 
     private final CrateController controller;
 
-    @EventHandler public void onBlockPlace(BlockPlaceEvent event) {
+    @EventHandler
+    public void onBlockPlace(BlockPlaceEvent event) {
         Player player = event.getPlayer();
         ItemStack itemInHand = event.getItemInHand();
 
-        if (itemInHand == null || itemInHand.getType() == Material.AIR || !itemInHand.hasItemMeta()) {
-            return;
-        }
+        if (itemInHand == null || itemInHand.getType() == Material.AIR) return;
 
         ItemMeta itemMeta = itemInHand.getItemMeta();
 
-        if (!itemMeta.hasDisplayName() || !itemMeta.getDisplayName().contains(CrateController.META)) {
-            return;
-        }
+        if (itemMeta.hasDisplayName() && itemMeta.getDisplayName().contains(CrateController.META)) {
+            for (Crate crate : this.controller.getCrates()) {
 
-        for (Crate crate : this.controller.getCrates()) {
+                if (crate == null) return;
 
-            if (crate == null) {
-                continue;
-            }
+                ItemStack blockItem = crate.getBlockItem();
 
-            ItemStack blockItem = crate.getBlockItem();
+                if (itemInHand.equals(blockItem)) {
+                    if (!player.hasPermission("vcrates.place") && player.getGameMode() != GameMode.CREATIVE) {
+                        System.out.println("canceled");
+                        event.setCancelled(true);
+                        return;
+                    }
 
-            if (itemInHand.equals(blockItem)) {
-                if (!player.hasPermission("vcrates.place") && player.getGameMode() != GameMode.CREATIVE) {
-                    event.setCancelled(true);
-                    continue;
+                    crate.getLocations().add(BukkitUtil.serializeLocation(event.getBlockPlaced().getLocation()));
+                    ChatUtil.toPlayer(player, "&aSuccessfully placed " + crate.getDisplayName() + "&a!");
                 }
-
-                crate.getLocations().add(BukkitUtil.serializeLocation(event.getBlockPlaced().getLocation()));
-                ChatUtil.toPlayer(player, "&aSuccessfully placed " + crate.getDisplayName() + "&a!");
             }
         }
-
     }
 
-    @EventHandler public void onBlockBreak(BlockBreakEvent event) {
+    @EventHandler
+    public void onBlockBreak(BlockBreakEvent event) {
         Location location = event.getBlock().getLocation();
 
         this.controller.findCrate(location).ifPresent(crate -> {
@@ -79,7 +75,8 @@ public class CrateListener implements Listener {
         });
     }
 
-    @EventHandler public void onPlayerInteract(PlayerInteractEvent event) {
+    @EventHandler
+    public void onPlayerInteract(PlayerInteractEvent event) {
         Action action = event.getAction();
 
         if (action == Action.RIGHT_CLICK_AIR || action == Action.LEFT_CLICK_AIR) {
@@ -141,9 +138,7 @@ public class CrateListener implements Listener {
 
                     player.updateInventory();
                 }
-
             }
         });
     }
-
 }
