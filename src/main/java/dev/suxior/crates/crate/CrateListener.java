@@ -31,7 +31,7 @@ public class CrateListener implements Listener {
         Player player = event.getPlayer();
         ItemStack itemInHand = event.getItemInHand();
 
-        if (itemInHand == null || itemInHand.getType() == Material.AIR) return;
+        if (itemInHand == null || itemInHand.getType() == Material.AIR || !itemInHand.hasItemMeta()) return;
 
         ItemMeta itemMeta = itemInHand.getItemMeta();
 
@@ -44,7 +44,6 @@ public class CrateListener implements Listener {
 
                 if (itemInHand.equals(blockItem)) {
                     if (!player.hasPermission("suxiorcrates.place") && player.getGameMode() != GameMode.CREATIVE) {
-                        System.out.println("canceled");
                         event.setCancelled(true);
                         return;
                     }
@@ -79,17 +78,12 @@ public class CrateListener implements Listener {
     public void onPlayerInteract(PlayerInteractEvent event) {
         Action action = event.getAction();
 
-        if (action == Action.RIGHT_CLICK_AIR || action == Action.LEFT_CLICK_AIR) {
-            return;
-        }
+        if (action == Action.RIGHT_CLICK_AIR || action == Action.LEFT_CLICK_AIR) return;
 
         this.controller.findCrate(event.getClickedBlock().getLocation()).ifPresent(crate -> {
-            event.setCancelled(true);
-
             Player player = event.getPlayer();
 
             switch (action) {
-
                 case LEFT_CLICK_BLOCK: {
                     event.setCancelled(true);
 

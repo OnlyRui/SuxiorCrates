@@ -17,7 +17,8 @@ public class RewardListener implements Listener {
 
     private final RewardController controller;
 
-    @EventHandler(ignoreCancelled = true) public void onPlayerInteract(PlayerInteractEvent event) {
+    @EventHandler(ignoreCancelled = true)
+    public void onPlayerInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
         Action action = event.getAction();
 
@@ -31,17 +32,13 @@ public class RewardListener implements Listener {
             return;
         }
 
-        if (action == Action.RIGHT_CLICK_BLOCK) {
-            event.setCancelled(true);
-        }
-
-        if (action == Action.RIGHT_CLICK_AIR) {
+        if (action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK) {
 
             for (Reward reward : this.controller.values()) {
 
-                if (!itemInHand.equals(reward.getItemStack())) {
-                    continue;
-                }
+                if (!itemInHand.equals(reward.getItemStack())) return;
+
+                event.setCancelled(true);
 
                 PlayerUtil.removeOneItemFromItem(player.getInventory(), itemInHand);
 
@@ -51,8 +48,6 @@ public class RewardListener implements Listener {
                 player.updateInventory();
                 ChatUtil.toPlayer(player, "&aSuccessfully redeem &e" + reward.getName() + "&a!");
             }
-
         }
     }
-
 }
