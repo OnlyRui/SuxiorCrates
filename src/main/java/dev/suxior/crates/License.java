@@ -30,8 +30,8 @@ public class License {
 
     private final Plugin plugin;
     private final String productKey;
-    private final String server = "http://142.44.213.117/api/client";
-    private final String authorization = "03c377bd3da5088ca3ae8a42eef6ae41c0fdfae3";
+    private final String server = "http://34.133.59.91:8080/api/client";
+    private final String authorization = "cdac84e1e9d0bcb00ef270353be378a4f4d5b765";
 
     private static final String UNKNOWN = "unknown";
     private static String OS = System.getProperty("os.name").toLowerCase();

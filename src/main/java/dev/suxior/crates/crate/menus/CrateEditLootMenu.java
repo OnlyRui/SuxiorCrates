@@ -59,5 +59,4 @@ public class CrateEditLootMenu extends Menu {
             this.crate.setLoot(BukkitUtil.serializeInventory(this.getInventory().getContents()));
         }
     }
-
 }

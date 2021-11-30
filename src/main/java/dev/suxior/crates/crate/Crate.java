@@ -51,7 +51,7 @@ public class Crate implements Storeable<String>, ConfigHandler {
                 .setDisplayName(itemMeta.getDisplayName() + CrateController.META)
                 .toItemStack());
 
-        ChatUtil.toPlayer(player, "&aSuccessfully gived &e" + this.displayName + " &7Block!");
+        ChatUtil.toPlayer(player, "&aSuccessfully gived &e" + this.id + " &7Crate!");
     }
 
     public void giveKey(Player player, int amount) {

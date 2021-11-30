@@ -58,8 +58,12 @@ public class CrateCommand {
     }
 
     @Command(aliases = {"crate editloot", "crates editloot"}, permission = "suxiorcrates.editloot.command", forPlayerOnly = true)
-    public void onCrateEditLootCommand(@Sender Player player, @Param(name = "crate") Crate crate) {
-        new CrateEditLootMenu(crate).openMenu(player, false);
+    public void onCrateEditLootCommand(@Sender CommandSender sender, @Param(name = "crate") Crate crate) {
+        if (sender instanceof Player) {
+            Player player = (Player) sender;
+            System.out.println(player.getName());
+            new CrateEditLootMenu(crate).openMenu(player, false);
+        }
     }
 
     @Command(aliases = {"crate givekey", "crates givekey"}, permission = "suxiorcrates.givekey.command")
@@ -88,10 +92,10 @@ public class CrateCommand {
         crate.giveBlock(target);
 
         if (sender != target) {
-            ChatUtil.toSender(sender, "&aSuccessfully gived to &e" + target.getName() + " " + crate.getDisplayName());
+            ChatUtil.toSender(sender, "&aSuccessfully gived to &e" + target.getName() + " " + crate.getId());
         }
 
-        ChatUtil.toSender(sender, "&aSuccessfully gived to yourself " + crate.getDisplayName());
+        ChatUtil.toSender(sender, "&aSuccessfully gived to yourself " + crate.getId());
     }
 
     @Command(aliases = {"crate list", "crates list"}, permission = "suxiorcrates.list.command")

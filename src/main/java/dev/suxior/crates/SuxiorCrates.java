@@ -31,9 +31,9 @@ public class SuxiorCrates extends JavaPlugin {
     @Override
     public void onEnable() {
 
-        License license = new License(this, "key");
+        License license = new License(this, "MHYQ9-KBLQQ-LEW3X-YOAEH-KTW8B");
 
-        if (true) {
+        if (license.verify()) {
             ChatUtil.print(
 
                     "&7&m-------------------------------------------------------",
