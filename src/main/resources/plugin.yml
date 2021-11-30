@@ -1,5 +1,5 @@
 authors: [OldVnco]
 name: vCrates
-main: club.vnco.crates.Crates
+main: SuxiorCrates
 prefix: V
 version: ${project.version}

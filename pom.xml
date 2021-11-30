@@ -4,26 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>vCrates</name>
     <groupId>club.vnco.hub</groupId>
     <artifactId>crates</artifactId>
     <version>0.0.1</version>
-
     <packaging>jar</packaging>
 
-    <developers>
-
-        <!-- Worker -->
-        <developer>
-            <name>Vnco</name>
-            <organizationUrl>discord.vnco.club</organizationUrl>
-            <email>oldvnco@gmail.com</email>
-        </developer>
-
-    </developers>
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
 
     <dependencies>
-
         <!-- Spigot 1.8 | API-->
         <dependency>
             <groupId>org.spigotmc</groupId>
@@ -36,7 +29,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.20</version>
+            <version>1.18.22</version>
             <scope>provided</scope>
         </dependency>
 
@@ -60,38 +53,29 @@
             <artifactId>annotations</artifactId>
             <version>16.0.2</version>
         </dependency>
-
     </dependencies>
 
     <build>
         <finalName>${project.name}-${project.version}</finalName>
         <defaultGoal>clean install</defaultGoal>
-
         <plugins>
-
             <plugin>
                 <version>3.8.1</version>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
-
             </plugin>
-
             <plugin>
-
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.2.4</version>
-
                 <configuration>
                     <createDependencyReducedPom>false</createDependencyReducedPom>
                     <shadedArtifactAttached>false</shadedArtifactAttached>
                 </configuration>
-
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -100,28 +84,13 @@
                         </goals>
                     </execution>
                 </executions>
-
             </plugin>
-
         </plugins>
-
         <resources>
-
             <resource>
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
-
         </resources>
-
     </build>
-
-    <properties>
-        <java.version>1.8</java.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
-
 </project>
