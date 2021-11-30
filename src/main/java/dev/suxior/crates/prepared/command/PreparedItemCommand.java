@@ -18,7 +18,7 @@ public class PreparedItemCommand {
 
     private final PreparedItemsController controller = (PreparedItemsController) SuxiorCrates.getInstance().getController(PreparedItemsController.class);
 
-    @Command(aliases = {"prepareditem"}, permission = "vcrates.prepareditem.command", help = true)
+    @Command(aliases = {"prepareditem"}, permission = "suxiorcrates.prepareditem.command", help = true)
     public void onPreparedItemCommand(@Sender CommandSender sender) {
         ChatUtil.toSender(sender,
 
@@ -38,7 +38,7 @@ public class PreparedItemCommand {
         );
     }
 
-    @Command(aliases = {"prepareditem create"}, permission = "vcrates.prepareditem.create.command")
+    @Command(aliases = {"prepareditem create"}, permission = "suxiorcrates.prepareditem.create.command")
     public void onPreparedItemCreateCommand(@Sender CommandSender sender, @Param(name = "name") String name) {
         if (this.controller.findById(name).isPresent()) {
             ChatUtil.toSender(sender, "&cPrepared Item &e" + name + " &calready exists!");
@@ -49,7 +49,7 @@ public class PreparedItemCommand {
         ChatUtil.toSender(sender, "&aSuccessfully created &e" + name + " P-Item&a!");
     }
 
-    @Command(aliases = {"prepareditem delete"}, permission = "vcrates.prepareditem.delete.command")
+    @Command(aliases = {"prepareditem delete"}, permission = "suxiorcrates.prepareditem.delete.command")
     public void onPreparedItemDeleteCommand(@Sender CommandSender sender, @Param(name = "p-item") PreparedItem preparedItem) {
         String name = preparedItem.getId();
 
@@ -57,7 +57,7 @@ public class PreparedItemCommand {
         ChatUtil.toSender(sender, "&aSuccessfully deleted &e" + name + " P-Item &a!");
     }
 
-    @Command(aliases = {"prepareditem give"}, permission = "vcrates.prepareditem.editloot.command")
+    @Command(aliases = {"prepareditem give"}, permission = "suxiorcrates.prepareditem.editloot.command")
     public void onPreparedItemGiveCommand(@Sender CommandSender sender, @Param(name = "p-item") PreparedItem preparedItem, @Param(name = "target/all") String target,
                                           @Param(name = "time", optional = true) String timeString) {
         if (timeString != null) {
@@ -76,7 +76,7 @@ public class PreparedItemCommand {
         }
     }
 
-    @Command(aliases = "prepareditem stop", permission = "vcrates.prepareditem.stop.command")
+    @Command(aliases = "prepareditem stop", permission = "suxiorcrates.prepareditem.stop.command")
     public void onPreparedItemStopCommand(@Sender CommandSender sender, @Param(name = "p-item") PreparedItem preparedItem) {
         String name = preparedItem.getId();
         BukkitTask task = preparedItem.getTask();
@@ -90,12 +90,12 @@ public class PreparedItemCommand {
 
     }
 
-    @Command(aliases = {"prepareditem editloot"}, permission = "vcrates.prepareditem.editloot.command", forPlayerOnly = true)
+    @Command(aliases = {"prepareditem editloot"}, permission = "suxiorcrates.prepareditem.editloot.command", forPlayerOnly = true)
     public void onPreparedItemEditLootCommand(@Sender Player player, @Param(name = "p-item") PreparedItem preparedItem) {
         new PreparedItemEditLootMenu(preparedItem).openMenu(player, false);
     }
 
-    @Command(aliases = {"prepareditem list"}, permission = "vcrates.prepareditem.list.command")
+    @Command(aliases = {"prepareditem list"}, permission = "suxiorcrates.prepareditem.list.command")
     public void onPreparedItemListCommand(@Sender CommandSender sender) {
         ChatUtil.toSender(sender, "&7&m" + Strings.repeat("-", 55));
 

@@ -23,7 +23,7 @@ public class AirdropProvisionalInventory extends Menu {
     public AirdropProvisionalInventory(Player player) {
         super("&3Airdrop Loot", 6);
 
-        if (player.hasPermission("vcrates.airdrop.editloot")) {
+        if (player.hasPermission("suxiorcrates.airdrop.editloot")) {
             this.setCancelClick(false);
         }
     }

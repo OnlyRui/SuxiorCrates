@@ -16,7 +16,7 @@ import org.bukkit.inventory.PlayerInventory;
 
 public class RewardCommand {
 
-    @Command(aliases = {"reward", "rewards"}, permission = "vcrates.reward.command", help = true)
+    @Command(aliases = {"reward", "rewards"}, permission = "suxiorcrates.reward.command", help = true)
     public void onRewardCommand(@Sender CommandSender sender) {
         ChatUtil.toSender(sender,
 
@@ -31,7 +31,7 @@ public class RewardCommand {
                 );
     }
 
-    @Command(aliases = {"reward give", "rewards give"}, permission = "vcrates.reward.give.command")
+    @Command(aliases = {"reward give", "rewards give"}, permission = "suxiorcrates.reward.give.command")
     public void onRewardGiveCommand(@Sender CommandSender sender, @Param(name = "reward") Reward reward, @Param(name = "target") String target,
                                     @Param(name = "amount") int amount) {
         PlayerUtil.actionForAllOrTarget(sender, target, player -> {
@@ -66,7 +66,7 @@ public class RewardCommand {
         });
     }
 
-    @Command(aliases = {"reward list", "rewards list"}, permission = "vcrates.reward.list.command")
+    @Command(aliases = {"reward list", "rewards list"}, permission = "suxiorcrates.reward.list.command")
     public void onRewardListCommand(@Sender CommandSender sender) {
         ChatUtil.toSender(sender, "&7&m" + Strings.repeat("-", 55));
 

@@ -4,10 +4,6 @@ import lombok.experimental.UtilityClass;
 
 import java.io.*;
 
-/**
- * vHCF
- * By: @OldVnco
- */
 @SuppressWarnings("all")
 @UtilityClass
 public class FileUtils {

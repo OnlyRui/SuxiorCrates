@@ -20,11 +20,11 @@ public class CrateCommand {
 
     @Command(aliases = {"crate", "crates"}, description = "Crate command", help = true)
     public void onCrateCommand(@Sender CommandSender sender) {
-        if (sender.hasPermission("vcrates.command")) {
+        if (sender.hasPermission("suxiorcrates.command")) {
             ChatUtil.toSender(sender,
 
                     "&7&m" + Strings.repeat("-", 55),
-                    "&b&lvCrates &7(Help Command / Arguments) [/crates <...>]",
+                    "&b&lSuxiorCrates &7(Help Command / Arguments) [/crates <...>]",
                     "",
                     " create <name> &7(Create crate)",
                     " delete <crate> &7(Delete crate)",
@@ -37,22 +37,10 @@ public class CrateCommand {
                     "&7&m" + Strings.repeat("-", 55)
 
                     );
-        } else {
-            ChatUtil.toSender(sender,
-
-                    "&7&m" + Strings.repeat("-", 55),
-                    "&b&lvCrates &7(Plugin Information)",
-                    "",
-                    "&bOwner&7: &fRui",
-                    "&bWorker&7: &fVnco#1315 &8/ &f@OldVnco",
-                    "&bSupport&7: &fdiscord.vnco.club",
-                    "&7&m" + Strings.repeat("-", 55)
-
-                    );
         }
     }
 
-    @Command(aliases = {"crate create", "crates create"}, permission = "vcrates.create.command")
+    @Command(aliases = {"crate create", "crates create"}, permission = "suxiorcrates.create.command")
     public void onCrateCreateCommand(@Sender CommandSender sender, @Param(name = "name") String name) {
         if (this.controller.findCrate(name).isPresent()) {
             ChatUtil.toSender(sender, "&cCrate &e" + name + " &calready exists!");
@@ -63,18 +51,18 @@ public class CrateCommand {
         ChatUtil.toSender(sender, "&aSuccessfully created &e" + name + " &7Crate&a!");
     }
 
-    @Command(aliases = {"crate delete", "crates delete"}, permission = "vcrates.delete.command")
+    @Command(aliases = {"crate delete", "crates delete"}, permission = "suxiorcrates.delete.command")
     public void onCrateDeleteCommand(@Sender CommandSender sender, @Param(name = "crate") Crate crate) {
         this.controller.getCrateStore().remove(crate);
         ChatUtil.toSender(sender, "&aSuccessfully deleted &e" + crate.getId() + " &7Crate&a!");
     }
 
-    @Command(aliases = {"crate editloot", "crates editloot"}, permission = "vcrates.editloot.command", forPlayerOnly = true)
+    @Command(aliases = {"crate editloot", "crates editloot"}, permission = "suxiorcrates.editloot.command", forPlayerOnly = true)
     public void onCrateEditLootCommand(@Sender Player player, @Param(name = "crate") Crate crate) {
         new CrateEditLootMenu(crate).openMenu(player, false);
     }
 
-    @Command(aliases = {"crate givekey", "crates givekey"}, permission = "vcrates.givekey.command")
+    @Command(aliases = {"crate givekey", "crates givekey"}, permission = "suxiorcrates.givekey.command")
     public void onCrateGiveKeyCommand(@Sender CommandSender sender, @Param(name = "crate") Crate crate, @Param(name = "target/all") String target, @Param(name = "amount") int amount) {
         PlayerUtil.actionForAllOrTarget(sender, target, player -> {
 
@@ -95,7 +83,7 @@ public class CrateCommand {
         });
     }
 
-    @Command(aliases = {"crate give", "crates give"}, permission = "vcrates.give.command", forPlayerOnly = true)
+    @Command(aliases = {"crate give", "crates give"}, permission = "suxiorcrates.give.command", forPlayerOnly = true)
     public void onCrateGiveCommand(@Sender CommandSender sender, @Param(name = "crate") Crate crate, @Param(name = "target") Player target) {
         crate.giveBlock(target);
 
@@ -106,7 +94,7 @@ public class CrateCommand {
         ChatUtil.toSender(sender, "&aSuccessfully gived to yourself " + crate.getDisplayName());
     }
 
-    @Command(aliases = {"crate list", "crates list"}, permission = "vcrates.list.command")
+    @Command(aliases = {"crate list", "crates list"}, permission = "suxiorcrates.list.command")
     public void onCrateListCommand(@Sender CommandSender sender) {
         ChatUtil.toSender(sender, "&7&m" + Strings.repeat("-", 55));
 

@@ -6,7 +6,6 @@ import java.util.List;
  * Store {@link Storeable} objects
  * @param <T> the object to store
  *
- * By: @OldVnco
  */
 public interface Store<T extends Storeable<?>> {
 

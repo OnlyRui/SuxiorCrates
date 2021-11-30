@@ -17,7 +17,7 @@ import org.bukkit.inventory.PlayerInventory;
 
 public class AirdropCommand {
 
-    @Command(aliases = {"airdrop"}, permission = "vcrates.airdrop.command", help = true)
+    @Command(aliases = {"airdrop"}, permission = "suxiorcrates.airdrop.command", help = true)
     public void onAirdropCommand(@Sender CommandSender sender) {
         ChatUtil.toSender(sender,
 
@@ -32,7 +32,7 @@ public class AirdropCommand {
         );
     }
 
-    @Command(aliases = {"airdrop give"}, permission = "vcrates.airdrop.give.command")
+    @Command(aliases = {"airdrop give"}, permission = "suxiorcrates.airdrop.give.command")
     public void onAirdropGiveCommand(@Sender CommandSender sender, @Param(name = "target") String target, @Param(name = "amount") int amount) {
         PlayerUtil.actionForAllOrTarget(sender, target, player -> {
 

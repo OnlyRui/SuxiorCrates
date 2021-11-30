@@ -43,7 +43,7 @@ public class CrateListener implements Listener {
                 ItemStack blockItem = crate.getBlockItem();
 
                 if (itemInHand.equals(blockItem)) {
-                    if (!player.hasPermission("vcrates.place") && player.getGameMode() != GameMode.CREATIVE) {
+                    if (!player.hasPermission("suxiorcrates.place") && player.getGameMode() != GameMode.CREATIVE) {
                         System.out.println("canceled");
                         event.setCancelled(true);
                         return;
@@ -64,7 +64,7 @@ public class CrateListener implements Listener {
 
             Player player = event.getPlayer();
 
-            if (!player.hasPermission("vcrates.break") && !player.isSneaking() && !player.getGameMode().equals(GameMode.CREATIVE)) {
+            if (!player.hasPermission("suxiorcrates.break") && !player.isSneaking() && !player.getGameMode().equals(GameMode.CREATIVE)) {
                 event.setCancelled(true);
                 return;
             }
