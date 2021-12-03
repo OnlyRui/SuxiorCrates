@@ -1,8 +1,8 @@
 package dev.suxior.crates.airdrop;
 
-import dev.suxior.crates.utils.PlayerUtil;
-import dev.suxior.crates.utils.StringUtils;
-import dev.suxior.crates.utils.TaskUtil;
+import dev.suxior.crates.utilities.PlayerUtil;
+import dev.suxior.crates.utilities.StringUtils;
+import dev.suxior.crates.utilities.TaskUtil;
 import lombok.AllArgsConstructor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;

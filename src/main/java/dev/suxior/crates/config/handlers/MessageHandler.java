@@ -3,7 +3,7 @@ package dev.suxior.crates.config.handlers;
 import dev.suxior.crates.SuxiorCrates;
 import dev.suxior.crates.config.ConfigController;
 import dev.suxior.crates.config.ConfigFile;
-import dev.suxior.crates.utils.text.ChatUtil;
+import dev.suxior.crates.utilities.text.ChatUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 

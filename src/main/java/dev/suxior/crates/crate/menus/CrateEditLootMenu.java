@@ -1,9 +1,9 @@
 package dev.suxior.crates.crate.menus;
 
 import dev.suxior.crates.crate.Crate;
-import dev.suxior.crates.menu.Menu;
-import dev.suxior.crates.menu.button.Button;
-import dev.suxior.crates.utils.BukkitUtil;
+import dev.suxior.crates.utilities.menu.Menu;
+import dev.suxior.crates.utilities.menu.button.Button;
+import dev.suxior.crates.utilities.BukkitUtil;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryCloseEvent;

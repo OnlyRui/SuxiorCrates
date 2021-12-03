@@ -2,11 +2,11 @@ package dev.suxior.crates.crate;
 
 import dev.suxior.crates.SuxiorCrates;
 import dev.suxior.crates.controller.Controller;
-import dev.suxior.crates.json.JsonSerializer;
+import dev.suxior.crates.utilities.json.JsonSerializer;
 import dev.suxior.crates.stores.Store;
 import dev.suxior.crates.stores.Stores;
-import dev.suxior.crates.utils.BukkitUtil;
-import dev.suxior.crates.utils.FileUtils;
+import dev.suxior.crates.utilities.BukkitUtil;
+import dev.suxior.crates.utilities.FileUtils;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -85,7 +85,8 @@ public class CrateController implements JsonSerializer<Crate>, Controller<Suxior
         return this.crateStore.getAll();
     }
 
-    @Override public File getParentFile() {
+    @Override
+    public File getParentFile() {
         return new File(this.getInstance().getDataFolder(), "crates");
     }
 }

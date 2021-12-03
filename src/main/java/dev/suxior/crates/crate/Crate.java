@@ -2,11 +2,11 @@ package dev.suxior.crates.crate;
 
 import dev.suxior.crates.config.handlers.ConfigHandler;
 import dev.suxior.crates.stores.Storeable;
-import dev.suxior.crates.utils.BukkitUtil;
-import dev.suxior.crates.utils.item.ItemCreator;
-import dev.suxior.crates.utils.item.ItemUtils;
-import dev.suxior.crates.utils.text.BuildText;
-import dev.suxior.crates.utils.text.ChatUtil;
+import dev.suxior.crates.utilities.BukkitUtil;
+import dev.suxior.crates.utilities.item.ItemCreator;
+import dev.suxior.crates.utilities.item.ItemUtils;
+import dev.suxior.crates.utilities.text.BuildText;
+import dev.suxior.crates.utilities.text.ChatUtil;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Material;
@@ -119,7 +119,6 @@ public class Crate implements Storeable<String>, ConfigHandler {
         }
 
         return BukkitUtil.serializeItemStack(
-
                 new ItemCreator(itemStack)
                         .setDisplayName(BuildText.of(this, this.getStringAt(key + "display-name")))
                         .setGlow((boolean) this.pathBase(key + "glow"))
@@ -148,5 +147,4 @@ public class Crate implements Storeable<String>, ConfigHandler {
     public ItemStack[] getLoot() {
         return BukkitUtil.deserializeInventory(this.loot);
     }
-
 }

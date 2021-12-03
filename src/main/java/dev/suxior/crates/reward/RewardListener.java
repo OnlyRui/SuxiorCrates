@@ -1,7 +1,7 @@
 package dev.suxior.crates.reward;
 
-import dev.suxior.crates.utils.PlayerUtil;
-import dev.suxior.crates.utils.text.ChatUtil;
+import dev.suxior.crates.utilities.PlayerUtil;
+import dev.suxior.crates.utilities.text.ChatUtil;
 import lombok.AllArgsConstructor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;

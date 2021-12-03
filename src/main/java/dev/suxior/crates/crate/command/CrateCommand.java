@@ -1,109 +1,39 @@
 package dev.suxior.crates.crate.command;
 
-import dev.suxior.crates.SuxiorCrates;
-import dev.suxior.crates.crate.Crate;
-import dev.suxior.crates.crate.CrateController;
-import dev.suxior.crates.crate.menus.CrateEditLootMenu;
-import dev.suxior.crates.utils.PlayerUtil;
-import dev.suxior.crates.utils.command.annotation.Command;
-import dev.suxior.crates.utils.command.annotation.Sender;
-import dev.suxior.crates.utils.command.parameter.Param;
-import dev.suxior.crates.utils.text.ChatUtil;
 import com.google.common.base.Strings;
-import org.bukkit.Bukkit;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
+import dev.suxior.crates.crate.command.subcommand.*;
+import dev.suxior.crates.utilities.command.BaseCommand;
+import dev.suxior.crates.utilities.command.Command;
+import dev.suxior.crates.utilities.command.CommandArgs;
+import dev.suxior.crates.utilities.text.ChatUtil;
 
-public class CrateCommand {
+public class CrateCommand extends BaseCommand {
 
-    private final CrateController controller = (CrateController) SuxiorCrates.getInstance().getController(CrateController.class);
-
-    @Command(aliases = {"crate", "crates"}, description = "Crate command", help = true)
-    public void onCrateCommand(@Sender CommandSender sender) {
-        if (sender.hasPermission("suxiorcrates.command")) {
-            ChatUtil.toSender(sender,
-
-                    "&7&m" + Strings.repeat("-", 55),
-                    "&b&lSuxiorCrates &7(Help Command / Arguments) [/crates <...>]",
-                    "",
-                    " create <name> &7(Create crate)",
-                    " delete <crate> &7(Delete crate)",
-                    " givekey <crate> <target/all> <amount> &7(Give crate key to a player)",
-                    " give <crate> <target> &7(Give crate to a player)",
-                    " editloot <crate> &7(Edit a crate loot )",
-                    " list &7(Show the crate list)",
-                    " reload &7(Reload plugin)",
-                    "",
-                    "&7&m" + Strings.repeat("-", 55)
-
-                    );
-        }
+    public CrateCommand() {
+        new CrateCreateCommand();
+        new CrateDeleteCommand();
+        new CrateGiveCommand();
+        new CrateGiveKeyCommand();
+        new CrateEditLootCommand();
+        new CrateListCommand();
     }
 
-    @Command(aliases = {"crate create", "crates create"}, permission = "suxiorcrates.create.command")
-    public void onCrateCreateCommand(@Sender CommandSender sender, @Param(name = "name") String name) {
-        if (this.controller.findCrate(name).isPresent()) {
-            ChatUtil.toSender(sender, "&cCrate &e" + name + " &calready exists!");
-            return;
-        }
-
-        this.controller.getCrateStore().add(new Crate(name));
-        ChatUtil.toSender(sender, "&aSuccessfully created &e" + name + " &7Crate&a!");
-    }
-
-    @Command(aliases = {"crate delete", "crates delete"}, permission = "suxiorcrates.delete.command")
-    public void onCrateDeleteCommand(@Sender CommandSender sender, @Param(name = "crate") Crate crate) {
-        this.controller.getCrateStore().remove(crate);
-        ChatUtil.toSender(sender, "&aSuccessfully deleted &e" + crate.getId() + " &7Crate&a!");
-    }
-
-    @Command(aliases = {"crate editloot", "crates editloot"}, permission = "suxiorcrates.editloot.command", forPlayerOnly = true)
-    public void onCrateEditLootCommand(@Sender CommandSender sender, @Param(name = "crate") Crate crate) {
-        if (sender instanceof Player) {
-            Player player = (Player) sender;
-            System.out.println(player.getName());
-            new CrateEditLootMenu(crate).openMenu(player, false);
-        }
-    }
-
-    @Command(aliases = {"crate givekey", "crates givekey"}, permission = "suxiorcrates.givekey.command")
-    public void onCrateGiveKeyCommand(@Sender CommandSender sender, @Param(name = "crate") Crate crate, @Param(name = "target/all") String target, @Param(name = "amount") int amount) {
-        PlayerUtil.actionForAllOrTarget(sender, target, player -> {
-
-            if (amount < 1) {
-                ChatUtil.toSender(sender, "&cInvalid amount!");
-                return;
-            }
-
-            crate.giveKey(player, amount);
-
-            if (target.equalsIgnoreCase("all")) {
-                ChatUtil.toSender(sender, "&aSuccessfully gived &ex" + amount + " " + crate.getDisplayName() + " &akeys to &e" + Bukkit.getOnlinePlayers().size() + " players&a.");
-            } else {
-                ChatUtil.toSender(sender, "&aSuccessfully gived &ex" + amount + " " + crate.getDisplayName() + " &akeys to &e" + player.getName() + "&a.");
-            }
-
-
-        });
-    }
-
-    @Command(aliases = {"crate give", "crates give"}, permission = "suxiorcrates.give.command", forPlayerOnly = true)
-    public void onCrateGiveCommand(@Sender CommandSender sender, @Param(name = "crate") Crate crate, @Param(name = "target") Player target) {
-        crate.giveBlock(target);
-
-        if (sender != target) {
-            ChatUtil.toSender(sender, "&aSuccessfully gived to &e" + target.getName() + " " + crate.getId());
-        }
-
-        ChatUtil.toSender(sender, "&aSuccessfully gived to yourself " + crate.getId());
-    }
-
-    @Command(aliases = {"crate list", "crates list"}, permission = "suxiorcrates.list.command")
-    public void onCrateListCommand(@Sender CommandSender sender) {
-        ChatUtil.toSender(sender, "&7&m" + Strings.repeat("-", 55));
-
-        this.controller.getCrates().forEach(crate -> ChatUtil.toSender(sender, "&8* " + crate.getId()));
-
-        ChatUtil.toSender(sender, "&7&m" + Strings.repeat("-", 55));
+    @Command(name = "crate", permission = "suxiorcrates.command.crate", aliases = {"crates"})
+    @Override
+    public void onCommand(CommandArgs command) {
+        ChatUtil.toSender(command.getSender(),
+                "&7&m" + Strings.repeat("-", 55),
+                "&b&lSuxiorCrates &7(Help Command / Arguments) [/crates <...>]",
+                "",
+                " create <name> &7(Create crate)",
+                " delete <crate> &7(Delete crate)",
+                " givekey <crate> <target/all> <amount> &7(Give crate key to a player)",
+                " give <crate> <target> &7(Give crate to a player)",
+                " editloot <crate> &7(Edit a crate loot )",
+                " list &7(Show the crate list)",
+                " reload &7(Reload plugin)",
+                "",
+                "&7&m" + Strings.repeat("-", 55)
+        );
     }
 }

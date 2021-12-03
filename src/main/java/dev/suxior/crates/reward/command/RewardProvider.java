@@ -3,10 +3,10 @@ package dev.suxior.crates.reward.command;
 import dev.suxior.crates.SuxiorCrates;
 import dev.suxior.crates.reward.Reward;
 import dev.suxior.crates.reward.RewardController;
-import dev.suxior.crates.utils.command.CommandSource;
-import dev.suxior.crates.utils.command.Provider;
-import dev.suxior.crates.utils.command.exception.ProviderException;
-import dev.suxior.crates.utils.command.parameter.Parameter;
+import dev.suxior.crates.utilities.command.CommandSource;
+import dev.suxior.crates.utilities.command.Provider;
+import dev.suxior.crates.utilities.command.exception.ProviderException;
+import dev.suxior.crates.utilities.command.parameter.Parameter;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,9 +1,9 @@
 package dev.suxior.crates.crate;
 
 import dev.suxior.crates.crate.menus.CrateEditLootMenu;
-import dev.suxior.crates.utils.BukkitUtil;
-import dev.suxior.crates.utils.PlayerUtil;
-import dev.suxior.crates.utils.text.ChatUtil;
+import dev.suxior.crates.utilities.BukkitUtil;
+import dev.suxior.crates.utilities.PlayerUtil;
+import dev.suxior.crates.utilities.text.ChatUtil;
 import lombok.AllArgsConstructor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
