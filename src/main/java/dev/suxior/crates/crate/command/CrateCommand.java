@@ -23,15 +23,15 @@ public class CrateCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         ChatUtil.toSender(command.getSender(),
                 "&7&m" + Strings.repeat("-", 55),
-                "&b&lSuxiorCrates &7(Help Command / Arguments) [/crates <...>]",
+                "&b&lSuxiorCrates &7(Help Command / Arguments)",
                 "",
-                " create <name> &7(Create crate)",
-                " delete <crate> &7(Delete crate)",
-                " givekey <crate> <target/all> <amount> &7(Give crate key to a player)",
-                " give <crate> <target> &7(Give crate to a player)",
-                " editloot <crate> &7(Edit a crate loot )",
-                " list &7(Show the crate list)",
-                " reload &7(Reload plugin)",
+                " &b/crate create <name> &f(Create crate)",
+                " &b/crate delete <crate> &f(Delete crate)",
+                " &b/crate givekey <crate> <target/all> <amount> &f(Give crate key to a player)",
+                " &b/crate give <crate> <target> &f(Give crate to a player)",
+                " &b/crate editloot <crate> &f(Edit a crate loot )",
+                " &b/crate list &f(Show the crate list)",
+                " &b/crate reload &f(Reload plugin)",
                 "",
                 "&7&m" + Strings.repeat("-", 55)
         );
