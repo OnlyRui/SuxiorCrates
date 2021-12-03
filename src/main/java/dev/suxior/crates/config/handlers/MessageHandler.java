@@ -22,5 +22,4 @@ public interface MessageHandler {
             ChatUtil.toSender(sender, (message).replace("<" + replace.split("/")[0] + ">", replace.split("/")[1]));
         }
     }
-
 }

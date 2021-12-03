@@ -31,5 +31,4 @@ public interface ConfigHandler {
     default Object get(String config, String path) {
         return ((ConfigController) SuxiorCrates.getInstance().getController(ConfigController.class)).get(config).get(path);
     }
-
 }

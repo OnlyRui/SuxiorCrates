@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dev.suxior.crates.airdrop.AirdropController;
 import dev.suxior.crates.config.ConfigController;
+import dev.suxior.crates.config.handlers.ConfigHandler;
 import dev.suxior.crates.controller.Controller;
 import dev.suxior.crates.crate.CrateController;
 import dev.suxior.crates.crate.command.CrateCommand;
@@ -23,7 +24,7 @@ import java.lang.reflect.Modifier;
 import java.util.Arrays;
 
 @Getter @Setter
-public class SuxiorCrates extends JavaPlugin {
+public class SuxiorCrates extends JavaPlugin implements ConfigHandler {
 
     private Gson gson;
     private Store<Controller<SuxiorCrates>> controllerStore;
@@ -31,7 +32,7 @@ public class SuxiorCrates extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        License license = new License(this, "MHYQ9-KBLQQ-LEW3X-YOAEH-KTW8B");
+        License license = new License(this, getLicense());
 
         ChatUtil.print(
                 "&7&m-------------------------------------------------------",
@@ -106,6 +107,14 @@ public class SuxiorCrates extends JavaPlugin {
 
     public Object getController(Class<? extends Controller<SuxiorCrates>> clazz) {
         return this.controllerStore.get(clazz);
+    }
+
+    private String getLicense() {
+        return (String) this.pathBase();
+    }
+
+    private Object pathBase() {
+        return this.get("license", "license");
     }
 
     public static SuxiorCrates getInstance() {

@@ -15,26 +15,32 @@ public class ConfigController implements Cache<String, ConfigFile>, Controller<S
 
     private Map<String, ConfigFile> fileMap;
 
-    @Override public void onEnable(SuxiorCrates crates) {
+    @Override
+    public void onEnable(SuxiorCrates crates) {
         this.fileMap = new HashMap<>();
 
         Arrays.asList(
-
                 "config",
                 "airdrop",
                 "rewards",
                 "loot",
-                "language"
-
+                "language",
+                "license"
         ).forEach(name -> this.add(name, new ConfigFile(name + ".yml")));
     }
 
-    @Override public void onReload(SuxiorCrates crates) {
+    @Override
+    public void onReload(SuxiorCrates crates) {
         this.forEach((s, configFile) -> configFile = new ConfigFile(s + ".yml"));
     }
 
-    @Override public Map<String, ConfigFile> get() {
-        return this.fileMap;
+    @Override
+    public ConfigFile get(String name) {
+        return this.fileMap.get(name);
     }
 
+    @Override
+    public Map<String, ConfigFile> get() {
+        return this.fileMap;
+    }
 }
