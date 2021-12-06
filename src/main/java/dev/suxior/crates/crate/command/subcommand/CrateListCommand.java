@@ -20,7 +20,7 @@ public class CrateListCommand extends BaseCommand {
 
     private final CrateController controller = (CrateController) SuxiorCrates.getInstance().getController(CrateController.class);
 
-    @Command(name = "crate.list", aliases = {"crates.list"}, permission = "suxiorcrates.command.list", inGameOnly = false)
+    @Command(name = "crate.list", aliases = {"crates.list"}, permission = "suxiorcrates.crate.list", inGameOnly = false)
     @Override
     public void onCommand(CommandArgs command) {
         CommandSender sender = command.getSender();

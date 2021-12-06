@@ -23,7 +23,7 @@ public class CrateEditLootCommand extends BaseCommand {
 
     private final CrateController controller = (CrateController) SuxiorCrates.getInstance().getController(CrateController.class);
 
-    @Command(name = "crate.editloot", aliases = {"crates.editloot"}, permission = "suxiorcrates.command.editloot")
+    @Command(name = "crate.editloot", aliases = {"crates.editloot"}, permission = "suxiorcrates.crate.editloot")
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();

@@ -3,12 +3,12 @@ package dev.suxior.crates;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dev.suxior.crates.airdrop.AirdropController;
+import dev.suxior.crates.airdrop.command.AirdropCommand;
 import dev.suxior.crates.config.ConfigController;
 import dev.suxior.crates.config.handlers.ConfigHandler;
 import dev.suxior.crates.controller.Controller;
 import dev.suxior.crates.crate.CrateController;
 import dev.suxior.crates.crate.command.CrateCommand;
-import dev.suxior.crates.reward.RewardController;
 import dev.suxior.crates.stores.Store;
 import dev.suxior.crates.stores.Stores;
 import dev.suxior.crates.utilities.TaskUtil;
@@ -32,6 +32,9 @@ public class SuxiorCrates extends JavaPlugin implements ConfigHandler {
 
     @Override
     public void onEnable() {
+        this.controllerStore = Stores.newClassStore();
+        this.registerControllers();
+
         License license = new License(this, getLicense());
 
         ChatUtil.print(
@@ -45,10 +48,8 @@ public class SuxiorCrates extends JavaPlugin implements ConfigHandler {
 
         if (license.verify()) {
             this.commandManager = new CommandManager(this);
-            this.controllerStore = Stores.newClassStore();
 
             this.registerGson();
-            this.registerControllers();
             this.registerCommands();
 
             ChatUtil.print(
@@ -88,7 +89,6 @@ public class SuxiorCrates extends JavaPlugin implements ConfigHandler {
                 new ItemUtils(),
                 new ConfigController(),
                 new CrateController(),
-                new RewardController(),
                 new AirdropController()
 
         ).forEach(this::registerController);
@@ -98,6 +98,7 @@ public class SuxiorCrates extends JavaPlugin implements ConfigHandler {
 
     private void registerCommands() {
         new CrateCommand();
+        new AirdropCommand();
     }
 
     private void registerController(Controller<SuxiorCrates> controller) {

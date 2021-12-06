@@ -16,18 +16,19 @@ public abstract class Button {
     }
 
     /**
+     * Get the ItemStack of the button
+     */
+
+    public abstract ItemStack getButtonItem();
+
+    /**
      * The button click will play all actions within this abstract method.
      *
      * @param player - The player to whom the actions will be replayed
      * @param clickType - The type of click when touching the button
      */
 
-    public abstract void onClick(Player player, ClickType clickType);
+    public void onClick(Player player, ClickType clickType) {
 
-    /**
-     * Get the ItemStack of the button
-     */
-
-    public abstract ItemStack getButtonItem();
-
+    }
 }

@@ -22,7 +22,7 @@ public class CrateCreateCommand extends BaseCommand {
 
     private final CrateController controller = (CrateController) SuxiorCrates.getInstance().getController(CrateController.class);
 
-    @Command(name = "crate.create", aliases = {"crates.create"}, permission = "suxiorcrates.command.create", inGameOnly = false)
+    @Command(name = "crate.create", aliases = {"crates.create"}, permission = "suxiorcrates.crate.create", inGameOnly = false)
     @Override
     public void onCommand(CommandArgs command) {
         CommandSender sender = command.getSender();

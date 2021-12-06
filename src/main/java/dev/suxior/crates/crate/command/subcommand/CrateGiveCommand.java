@@ -24,13 +24,13 @@ public class CrateGiveCommand extends BaseCommand {
 
     private final CrateController controller = (CrateController) SuxiorCrates.getInstance().getController(CrateController.class);
 
-    @Command(name = "crate.give", aliases = {"crates.give"}, permission = "suxiorcrates.command.give", inGameOnly = false)
+    @Command(name = "crate.give", aliases = {"crates.give"}, permission = "suxiorcrates.crate.give", inGameOnly = false)
     @Override
     public void onCommand(CommandArgs command) {
         CommandSender sender = command.getSender();
         String[] args = command.getArgs();
 
-        if (args.length < 3) {
+        if (args.length < 2) {
             ChatUtil.toSender(sender, "&cUsage: /crate give <player> <crate>");
             return;
         }

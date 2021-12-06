@@ -1,17 +1,15 @@
 package dev.suxior.crates.crate.menus;
 
 import dev.suxior.crates.crate.Crate;
+import dev.suxior.crates.crate.menus.buttons.CrateLootButton;
+import dev.suxior.crates.utilities.BukkitUtil;
 import dev.suxior.crates.utilities.menu.Menu;
 import dev.suxior.crates.utilities.menu.button.Button;
-import dev.suxior.crates.utilities.BukkitUtil;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 public class CrateEditLootMenu extends Menu {
@@ -25,36 +23,25 @@ public class CrateEditLootMenu extends Menu {
         this.setCancelClick(false);
     }
 
-    @Override public Set<Button> getButtons(Player player) {
+    @Override
+    public Set<Button> getButtons(Player player) {
         Set<Button> buttons = new HashSet<>();
 
-        ItemStack[] itemStacks = this.crate.getLoot();
+        ItemStack[] loot = this.crate.getLoot();
 
-        if (itemStacks.length > 0) {
+        for (int i = 0; i < loot.length; i++) {
+            ItemStack item = loot[i];
 
-            Iterator<ItemStack> iterator = Arrays.asList(itemStacks).iterator();
-            int i = 0;
+            if (item == null) continue;
 
-            while (iterator.hasNext() && i++ < this.getSize()) {
-                buttons.add(new Button(i) {
-
-                    @Override
-                    public void onClick(Player player, ClickType clickType) {
-                    }
-
-                    @Override
-                    public ItemStack getButtonItem() {
-                        return iterator.next();
-                    }
-
-                });
-            }
+            buttons.add(new CrateLootButton(i, item));
         }
 
         return buttons;
     }
 
-    @Override public void onClose(InventoryCloseEvent event) {
+    @Override
+    public void onClose(InventoryCloseEvent event) {
         if (!event.getView().getTopInventory().equals(this.getInventory())) {
             this.crate.setLoot(BukkitUtil.serializeInventory(this.getInventory().getContents()));
         }
